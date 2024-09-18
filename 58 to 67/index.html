@@ -1,0 +1,87 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8" />  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <title>DOM Manipulation Example</title>  
+    <style>  
+        .content {  
+            margin: 10px 0;  
+        }  
+    </style>  
+    <script>  
+        // Function to execute DOM manipulations  
+        function manipulateDOM() {  
+            // i. Get element of id “main-content” and assign it to a variable  
+            const mainContent = document.getElementById("main-content");  
+
+            // ii. Display all child elements of “main-content” element  
+            const childElements = mainContent.children;  
+            console.log("Child elements of main-content:");  
+            for (let i = 0; i < childElements.length; i++) {  
+                console.log(childElements[i].innerHTML);  
+            }  
+
+            // iii. Get all elements of class “render” and show their innerHTML in browser  
+            const renders = document.getElementsByClassName("render");  
+            console.log("Render elements' innerHTML:");  
+            for (let i = 0; i < renders.length; i++) {  
+                console.log(renders[i].innerHTML);  
+            }  
+
+            // iv. Fill input value whose element id is "first-name" using JavaScript  
+            document.getElementById("first-name").value = "zunaira";  
+
+            // v. Repeat part iv for id “last-name” and “email”  
+            document.getElementById("last-name").value = "anwer";  
+            document.getElementById("email").value = "zunaira.anwer70@gmail.com";  
+
+            // Additional DOM tasks based on your requirements  
+            console.log("Node type of element with id 'form-content':", document.getElementById("form-content").nodeType);  
+            console.log("Node type of element with id 'lastName':", document.getElementById("lastName").nodeType);  
+            console.log("Node type of child node of element with id 'lastName':", document.getElementById("lastName").childNodes[0].nodeType);  
+
+            // iii. Update child node of element having id “lastName”  
+            document.getElementById("lastName").childNodes[0].nodeValue = "Last Name: anwer";  
+
+            // iv. Get First and last child of id “main-content”  
+            const mainContentElement = document.getElementById("main-content");  
+            console.log("First child of main-content:", mainContentElement.firstChild); // This might include text nodes, so be cautious  
+            console.log("Last child of main-content:", mainContentElement.lastChild);  
+
+            // v. Get next and previous siblings of id “lastName”  
+            const lastNameElement = document.getElementById("lastName");  
+            console.log("Next sibling of lastName:", lastNameElement.nextSibling); // This might include text nodes, so be cautious  
+            console.log("Previous sibling of lastName:", lastNameElement.previousSibling);  
+
+            // vi. Get parent node and node type of element with id “email”  
+            const emailElement = document.getElementById("email");  
+            console.log("Parent node of email:", emailElement.parentNode);  
+            console.log("Node type of parent node of email:", emailElement.parentNode.nodeType);  
+        }  
+
+        // Execute the function once the DOM is fully loaded  
+        window.onload = manipulateDOM;  
+    </script>  
+</head>  
+<body>  
+    <div>  
+        <h1> DOM </h1>  
+        <div id="form-content" class="content">  
+            <label for="first-name">First Name</label>  
+            <input type="text" id="first-name" />  
+            <label for="last-name">Last Name</label>  
+            <input type="text" id="last-name" />  
+            <label for="email">Email</label>  
+            <input type="text" id="email" />  
+        </div>  
+        <div id="main-content" class="content">  
+            <p class="render"> First Name : zunaira</p>  
+            <p class="render" id="lastName">Last Name: anwer</p>  
+            <p class="render"> Email : zunaira.anwer70@.com</p>  
+            <p class="render"> Country : Pakistan </p>  
+            <p class="render"> contact : +92 3307042456</p>  
+        </div>  
+    </div>  
+</body>  
+</html>
